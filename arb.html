@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	
+
+	<input type="text" name="x" value="5">
+	<input type="text" name="y" value="6">
+	<button id="Suma" onclick="Summa()">Suma</button>
+	<div id="rezultat" style="width: 80px; height: 80px; border: solid 1px;">summa</div>
+
+	<input type="text" name="first" id="first">
+	<input type="text" name="second" id="second">
+	<button id="Schimb" onclick="Ex2()">Schimb</button>
+
+	<div class="container" style=" width: 80px; height: 80px;" onmouseover="Ex3()"></div>
+	<div id="myDIV"></div>
+	<div id="myDIV2"></div>
+	<div id="myDIV3"></div>
+	<button onclick="Ex4()">Ex.4</button>
+	<button onclick="Ex5()">Ex.5</button>
+	<button onclick="Ex7()">Ex.7</button>
+	<button onclick="Ex8()">Ex.8</button>
+	<button id="bt2" onclick="Ex12()" >contor 1</button>
+
+	<script type="text/javascript">
+		
+		 var cont = 2;
+		function Summa() {
+			let x = Number(document.querySelector('input[name="x"]').value);
+			let y = Number(document.querySelector('input[name="y"]').value);
+			let sum = x+y;
+				document.getElementById('rezultat').innerHTML = sum;
+
+		}
+
+		function Ex2(){
+			let first = Number(document.querySelector('input[name="first"]').value);
+			let second = Number(document.querySelector('input[name="second"]').value);
+			let s = document.querySelector('input[name="second"]');
+			let f = document.querySelector('input[name="first"]'); 
+			s.value = first;
+			f.value = second;
+
+		}
+		function Ex3(){
+			var x = document.getElementsByClassName("container");
+			var i;
+  				for (i = 0; i < x.length; i++) {
+    				x[i].style.backgroundColor = "red";
+  				}
+  		}
+  		function Ex4(){
+
+  			
+  			for (var i = 1; i <= 10; i++) {
+  				var para = document.createElement("P");  
+  				var t = document.createTextNode("Paragraph " +i);
+  				para.appendChild(t);
+  				document.getElementById("myDIV").appendChild(para); 
+  				if (i % 2 == 0) {
+  					para.style.backgroundColor="blue";
+  				} else {
+  					para.style.backgroundColor="yellow";
+  				}
+  			}
+  		}
+  		function Ex5(){
+  			var g = document.createElement('ul');
+			g.id= 'ul1'; 
+			document.getElementById("myDIV2").appendChild(g); 
+
+			for (var i = 1; i <= 10; i++) {
+  				var para = document.createElement("li");  
+  				var t = document.createTextNode("Element " +i);
+  				para.appendChild(t);
+  				para.id = 'li'+i;
+  				document.getElementById("ul1").appendChild(para); 
+  			}
+
+  			document.getElementById("ul1").lastElementChild.style.backgroundColor = "blue";
+  			
+    	setInterval(function(){ 
+
+    		var x = document.getElementById("ul1").childElementCount;
+    		var x1 = x+1;
+    		var para = document.createElement("li");  
+  				var t = document.createTextNode("li timeout "+x1);
+  				para.appendChild(t);
+  				para.className = "child";
+  				document.getElementById("ul1").appendChild(para); 
+
+    	 }, 10000);
+  		}
+  		function Ex7(){
+  			var leftSection = document.getElementById('li5');
+  			var rem = document.getElementById('ul1');
+  			rem.removeChild(leftSection);
+  		}
+  		function Ex8(){
+
+  			
+  			for (var i = 1; i <= 10; i++) {
+  				var para = document.createElement("P");  
+  				var t = document.createTextNode("Paragraph " +i);
+  				para.appendChild(t);
+  				para.className = "child";
+  				document.getElementById("myDIV3").appendChild(para); 
+  				var x = document.getElementsByClassName("child");
+				var i;
+  				for (i = 0; i < x.length; i++) {
+    				x[i].style.backgroundColor = "black";
+  				}
+  			}
+  		}
+  		 
+    	setTimeout(function(){ var bad = document.body.style.backgroundColor = "grey"; }, 5000);
+    	
+    	function Ex12(){
+    		
+    		var f1 = document.getElementById('bt2');
+    		f1.innerHTML = "contor " +cont;
+    		cont++;
+    	}
+
+
+
+
+
+		
+
+	</script>
+</body>
+</html>
